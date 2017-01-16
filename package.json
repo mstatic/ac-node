@@ -1,0 +1,22 @@
+{
+  "name": "ac-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha --opts mocha.opts",
+    "database": "\"/c/Program Files/MongoDB/Server/3.4/bin/mongod.exe\" --dbpath=./data"
+  },
+  "author": "Peter Fields <peter@motionstatic.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "colors": "^1.1.2",
+    "express": "^4.14.0",
+    "faker": "^3.1.0",
+    "mocha": "^3.2.0",
+    "mongodb": "^2.2.21",
+    "mongoose": "^4.7.7",
+    "socket.io": "^1.7.2"
+  }
+}
