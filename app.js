@@ -4,7 +4,8 @@ const colors = require('colors');
 const http = require('http');
 const server = http.createServer(app);
 const config = require('./config');
-
+const bodyParser = require('body-parser');
+const mongo = require('./database/mongo');
 let userRouter = require('./router/users');
 let eventRouter = require('./router/events');
 
@@ -13,14 +14,21 @@ app.get('/', (req, res) => {
 });
 
 //MIDDLEWARE
-app.use(bodyParser);
-app.use()
+app.use(bodyParser.json());
 
 app.use('/users', userRouter);
 app.use('/events', eventRouter);
 
-server.listen(9000, () => {
-    console.log('Listenning on port 9000...'.green);
-});
+const start = () => {
+    let connection = mongo.init();
+
+    connection.then((res) => {
+        server.listen(9000, () => {
+            console.log('Listenning on port 9000...'.green);
+        });
+    });
+}
+
+start();
 
 module.exports = app;

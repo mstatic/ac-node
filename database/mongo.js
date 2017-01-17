@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const connectionString = 'mongodb://127.0.0.1:27017/wheretodance';
 
 mongoose.Promise = global.Promise;
+
 mongoose.connect(connectionString);
 
 exports.init = () => {
@@ -15,9 +16,15 @@ exports.init = () => {
 }
 
 const wipe = () => {
-
+    return new Promise((resolve, reject) => {
+        //wipe the db
+        // when it done resolve
+    });
 }
 
 const seed = () => {
-    
+    return new Promise((resolve, reject) => {
+        //wipe the db
+        // when it done resolve
+    });
 }

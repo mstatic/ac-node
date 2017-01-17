@@ -1,16 +1,10 @@
 const mongo = require('../../database/mongo.js');
 const User = require('../../models/user.js');
 const faker = require('faker');
-const chai = require('chai').expect;
+const expect = require('chai').expect;
 
 describe('User model', function () {
-    before(function (done) {
-        let connection = mongo.init();
 
-        connection.then((res) => {
-            done();
-        });
-    });
 
     it('should create a user', function () {
         let userData = {
