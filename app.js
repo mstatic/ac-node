@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const mongo = require('./database/mongo');
 let userRouter = require('./router/users');
 let eventRouter = require('./router/events');
+let authRouter = require('./router/auth');
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/welcome.html');
@@ -18,6 +19,7 @@ app.use(bodyParser.json());
 
 app.use('/users', userRouter);
 app.use('/events', eventRouter);
+app.use('/auth', authRouter);
 
 const start = () => {
     let connection = mongo.init();

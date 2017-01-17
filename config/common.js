@@ -1,7 +1,7 @@
 module.exports = {
     JWT_TTL: 86400,
     MESSAGES: {
-        FORBIDDEN: 'you have reached the users section',
+        FORBIDDEN: 'you are forbidden',
         UNPROCESSED: 'unprocessed',
         NOT_FOUND: 'nothing found'
     }

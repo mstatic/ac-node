@@ -2,15 +2,17 @@ const express = require('express');
 let router = express.Router();
 const ACL = require('../middleware/auth').ACL;
 const userMiddleware = require('../middleware/user');
-router.get('/', (req, res) => {
-    res.send('you have reached the users section');
+const authMiddleware = require('../middleware/auth');
+
+router.get('/', authMiddleware.authenticate, (req, res) => {
+    res.json({msg: 'you have reached the users section'});
 });
 
-router.get('/me', ACL, (req, res) => {
-    res.send('you have requested the me route');
+router.get('/me', authMiddleware.authenticate, (req, res) => {
+    res.json(req.user);
 });
 
-router.get('/:userid', userMiddleware.getUserById, (req, res) => {
+router.get('/:userid', authMiddleware.authenticate, userMiddleware.getUserById, (req, res) => {
     res.status(200); // create new entity
     res.json(res.locals.userById);
 });
