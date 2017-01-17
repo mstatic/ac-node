@@ -33,7 +33,7 @@ describe('User model', function () {
 
     it('should get all users', function () {
         let users = User.find((err, res) => {
-            console.log(res);
+            // console.log(res);
 
             if (err) throw err;
             expect(res.length).to.be.above(0);
